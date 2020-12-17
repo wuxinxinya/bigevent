@@ -52,7 +52,23 @@ window.onload = function () {
       if (pwd !== val) return '两次密码不一致哟~';
     }
   })
+  // 登录
+  $('.login form').on('submit', function (e) {
+    e.preventDefault();
+    var data = $(this).serialize()
+    $.ajax({
+      type: 'post',
+      data: data,
+      url: '/api/login',
+      success: function (res) {
+        layer.msg(res.message);
+        if (res.status === 0) {
+          location.href = 'index.html'
+        }
 
+      }
+    })
+  })
 
 
 
