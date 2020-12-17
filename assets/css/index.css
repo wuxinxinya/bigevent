@@ -1,0 +1,9 @@
+.layui-icon {
+  margin-right: 10px;
+}
+.layui-side dd {
+  margin-left: 10px;
+}
+.layui-logo {
+  background: url(../images/logo.png) no-repeat center;
+}
