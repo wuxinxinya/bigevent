@@ -7,3 +7,26 @@
 .layui-logo {
   background: url(../images/logo.png) no-repeat center;
 }
+/* 侧边栏的头像位置 div */
+div.userinfo {
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
+}
+/* 字体头像 */
+.text-head {
+  width: 35px;
+  height: 35px;
+  text-align: center;
+  line-height: 35px;
+  font-size: 20px;
+  color: #fff;
+  background-color: #419488;
+  display: inline-block;
+  border-radius: 50%;
+}
+/* 默认隐藏两个头像 */
+.text-head,
+.layui-nav-img {
+  display: none;
+}

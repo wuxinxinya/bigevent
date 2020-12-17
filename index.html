@@ -20,6 +20,9 @@
       <ul class="layui-nav layui-layout-right">
         <li class="layui-nav-item">
           <a href="javascript:;">
+            <!-- 因为新注册的账号没有图片类型的头像，所以取用户名的第一个字符当做头像。如果后续，用户更换了图片头像，那么就显示图片头像。
+ -->
+            <span class="text-head">A</span>
             <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
             个人中心
           </a>
@@ -33,9 +36,16 @@
     </div>
 
     <div class="layui-side layui-bg-black">
+      <!-- 侧边栏代码 -->
+      <div class="userinfo" href="javascript:;">
+        <span class="text-head">A</span>
+        <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+        欢迎你<span class="username">老汤</span>
+      </div>
       <div class="layui-side-scroll">
         <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
         <ul lay-shrink="all" class="layui-nav layui-nav-tree" lay-filter="test">
+
           <li class="layui-nav-item layui-this"><a href=""><i class="layui-icon layui-icon-face-smile"></i> 首页</a></li>
           <li class="layui-nav-item">
             <a class="" href="javascript:;"><i class="layui-icon layui-icon-face-smile"></i> 文章管理</a>
