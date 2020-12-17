@@ -20,7 +20,8 @@ window.onload = function () {
       url: '/api/reguser',
       data: data,
       success: function (res) {
-        alert(res.message)
+        // alert(res.message)
+        layer.msg(res.message);
         if (res.status === 0) {
           // 注册成功，显示登录的盒子
           $('.login').show().next().hide();
