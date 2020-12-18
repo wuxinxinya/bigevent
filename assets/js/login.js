@@ -64,6 +64,7 @@ window.onload = function () {
         layer.msg(res.message);
         if (res.status === 0) {
           location.href = 'index.html'
+          localStorage.setItem('token', res.token)
         }
 
       }
