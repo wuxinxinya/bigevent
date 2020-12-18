@@ -1,3 +1,6 @@
+if (!localStorage.getItem('token')) {
+  location.href = './login.html';
+}
 // 获取用户信息
 function getUserInfo() {
   $.ajax({
@@ -21,6 +24,17 @@ function getUserInfo() {
           $('.layui-nav-img').hide();
         }
       }
+    },
+    // complete函数，在ajax请求完成（无论成功还是失败）之后触发
+    complete: function (xhr) {
+      // 这里判断身份认证是否成功
+      console.log(xhr);
+      // if (xhr.responseJSON && xhr.responseJSON.status === 1 && xhr.responseJSON.message === '身份认证失败！') {
+      //   // 删除假token
+      //   localStorage.removeItem('token');
+      //   // 跳转到登录页面
+      //   location.href = '/login.html';
+      // }
     },
     // jQuery中ajax选项，有一个headers，通过他，可以设置请求头
     headers: {
