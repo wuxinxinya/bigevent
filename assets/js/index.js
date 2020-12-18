@@ -56,7 +56,3 @@ $('#logout').click(function () {
   });
 });
 
-// 点击基本资料，显示对应页面
-$('.layui-layout .zl').on('click', function () {
-  $('.layui-body iframe').show()
-})

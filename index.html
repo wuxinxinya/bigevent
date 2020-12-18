@@ -32,9 +32,9 @@
             个人中心
           </a>
           <dl class="layui-nav-child">
-            <dd class="zl"><a href="./user/userinfo.html" target="ifm">基本资料</a></dd>
-            <dd><a href="">更换头像</a></dd>
-            <dd><a href="">重置密码</a></dd>
+            <dd><a href="./user/userinfo.html" target="ifm">基本资料</a></dd>
+            <dd><a href="./user/avatar.html" target="ifm">更换头像</a></dd>
+            <dd><a href="./user/reset.html" target="ifm">重置密码</a></dd>
           </dl>
         </li>
         <li class="layui-nav-item"><a href="javascript:;" id="logout"><i class="layui-icon layui-icon-logout"></i>退出</a>
@@ -66,11 +66,11 @@
           <li class="layui-nav-item">
             <a href="javascript:;"><i class="layui-icon layui-icon-face-smile"></i> 个人中心</a>
             <dl class="layui-nav-child">
-              <dd class="zl"><a href="./user/userinfo.html" target="ifm"><i
-                    class="layui-icon layui-icon-face-smile"></i>基本资料</a>
+              <dd><a href="./user/userinfo.html" target="ifm"><i class="layui-icon layui-icon-face-smile"></i>基本资料</a>
               </dd>
-              <dd><a href="javascript:;"><i class="layui-icon layui-icon-face-smile"></i>更换头像</a></dd>
-              <dd><a href="javascript:;"><i class="layui-icon layui-icon-face-smile"></i>重置密码</a></dd>
+              <dd><a href="./user/avatar.html" target="ifm"><i class="layui-icon layui-icon-face-smile"></i>更换头像</a>
+              </dd>
+              <dd><a href="./user/reset.html" target="ifm"><i class="layui-icon layui-icon-face-smile"></i>重置密码</a></dd>
             </dl>
           </li>
         </ul>
@@ -79,10 +79,8 @@
 
     <div class="layui-body">
       <!-- 内容主体区域 -->
-      <div style="padding: 15px;">
-        <iframe src="./user/userinfo.html" frameborder="0" name="ifm" style="display: none;"></iframe>
-        内容主体区域
-      </div>
+      <iframe src="./home/dashboard.html" frameborder="0" name="ifm"></iframe>
+
     </div>
   </div>
   <script src="./assets/lib/jquery.js"></script>

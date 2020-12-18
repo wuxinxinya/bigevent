@@ -30,3 +30,13 @@ div.userinfo {
 .layui-nav-img {
   display: none;
 }
+.layui-body {
+  overflow: hidden;
+}
+iframe {
+  width: 100%;
+  height: 100%;
+}
+.layui-side {
+  overflow: hidden;
+}
