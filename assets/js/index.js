@@ -26,20 +26,20 @@ function getUserInfo() {
       }
     },
     // complete函数，在ajax请求完成（无论成功还是失败）之后触发
-    complete: function (xhr) {
-      // 这里判断身份认证是否成功
-      console.log(xhr);
-      // if (xhr.responseJSON && xhr.responseJSON.status === 1 && xhr.responseJSON.message === '身份认证失败！') {
-      //   // 删除假token
-      //   localStorage.removeItem('token');
-      //   // 跳转到登录页面
-      //   location.href = '/login.html';
-      // }
-    },
+    // complete: function (xhr) {
+    //   // 这里判断身份认证是否成功
+    //   console.log(xhr);
+    //   if (xhr.responseJSON && xhr.responseJSON.status === 1 && xhr.responseJSON.message === '身份认证失败！') {
+    //     // 删除假token
+    //     localStorage.removeItem('token');
+    //     // 跳转到登录页面
+    //     location.href = './login.html';
+    //   }
+    // },
     // jQuery中ajax选项，有一个headers，通过他，可以设置请求头
-    headers: {
-      'Authorization': localStorage.getItem('token')
-    }
+    // headers: {
+    //   'Authorization': localStorage.getItem('token')
+    // }
   });
 }
 getUserInfo()
@@ -50,12 +50,10 @@ getUserInfo()
 // - 页面跳转到登录页面
 $('#logout').click(function () {
   // 弹出层，询问是否要退出
-  layer.confirm('你确定退出吗？你退出了还得登录，你想好了吗？', function (index) {
+  layer.confirm('你确定退出吗？你退出了还得登录，你想好了吗？', { icon: 3, title: '提示' }, function (index) {
     //do something
-    // 如果点击了确定，删除token，页面跳转
     localStorage.removeItem('token');
     location.href = './login.html';
-    layer.close(index); // 关闭当前弹出层
+    layer.close(index);
   });
-
 });
