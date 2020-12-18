@@ -29,3 +29,8 @@ $('.layui-card form').on('submit', function (e) {
     }
   })
 })
+// 重置
+$('.layui-btn-primary').on('click', function () {
+  // 调用数据反填函数
+  render()
+})
