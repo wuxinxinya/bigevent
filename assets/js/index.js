@@ -1,6 +1,4 @@
-if (!localStorage.getItem('token')) {
-  location.href = './login.html';
-}
+
 // 获取用户信息
 function getUserInfo() {
   $.ajax({
@@ -16,12 +14,12 @@ function getUserInfo() {
         if (res.data.user_pic) {
           // 使用图片
           $('.layui-nav-img').attr('src', res.data.user_pic).show();
-          $('.text-head').hide();
+          // $('.text-head').hide();
         } else {
           var t = myname.substr(0, 1).toUpperCase();
           // jQuery中的show方法，会设置元素 display:inline;
           $('.text-head').text(t).css('display', 'inline-block');
-          $('.layui-nav-img').hide();
+          // $('.layui-nav-img').hide();
         }
       }
     },
@@ -57,3 +55,8 @@ $('#logout').click(function () {
     layer.close(index);
   });
 });
+
+// 点击基本资料，显示对应页面
+$('.layui-layout .zl').on('click', function () {
+  $('.layui-body iframe').show()
+})
