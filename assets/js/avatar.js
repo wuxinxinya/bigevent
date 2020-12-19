@@ -39,20 +39,23 @@ $image.cropper(options);
 
 // -------------  点击  上传  ，可以选择图片  ------------
 $('button:contains("上传")').click(function () {
-
+  // console.log($('#file'));
   $('#file').click();
 });
 
 // 文件域的内容改变的时候，更换剪裁区的图片
 $('#file').change(function () {
-  // 3.1) 先找到文件对象
-  // console.dir(this)
-  var fileObj = this.files[0];
-  // 3.2) 为选择的图片生成一个临时的url
-  var url = URL.createObjectURL(fileObj);
-  // console.log(url);
-  // 3.3) 更换图片的src属性即可（销毁剪裁区 --> 更换src属性 --> 重新创建剪裁框）
-  $image.cropper('destroy').attr('src', url).cropper(options);
+  if (this.files.length > 0) {
+    // 3.1) 先找到文件对象
+    // console.dir(this)
+    var fileObj = this.files[0];
+    // 3.2) 为选择的图片生成一个临时的url
+    var url = URL.createObjectURL(fileObj);
+    // console.log(url);
+    // 3.3) 更换图片的src属性即可（销毁剪裁区 --> 更换src属性 --> 重新创建剪裁框）
+    $image.cropper('destroy').attr('src', url).cropper(options);
+  }
+
 });
 
 
