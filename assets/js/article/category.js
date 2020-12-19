@@ -47,3 +47,8 @@ $('body').on('submit', '#add-form', function (e) {
     }
   });
 });
+
+// 重置
+$('body').on('click', '.layui-btn-primary', function () {
+  $('#add-form')[0].reset()
+})
