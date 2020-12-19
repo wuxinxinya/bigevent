@@ -17,8 +17,9 @@ function renderCategory() {
 renderCategory()
 
 // --------------- 点击 添加类别 ，弹层 ---------------------
+var addIndex;
 $('.layui-card-header button').click(function () {
-  layer.open({
+  addIndex = layer.open({
     type: 1,//层类型---1页面层
     title: '添加类别',
     content: $('#tpl-add').html(),
@@ -42,7 +43,7 @@ $('body').on('submit', '#add-form', function (e) {
         // 添加成功，重新渲染列表
         renderCategory();
         // 关闭弹出层
-        layer.closeAll();
+        layer.close(addIndex);
       }
     }
   });
@@ -74,4 +75,46 @@ $('body').on('click', '.delete', function () {
     })
     layer.close(index);
   });
+})
+
+// 编辑
+var form = layui.form;
+var editIndex;
+$('body').on('click', '.edit', function () {
+  // let id = $(this).attr('data-id');
+  // let name = $(this).attr('data-name');
+  // let alias = $(this).attr('data-alias');
+  var data = $(this).data()//获取所有的data-***的值
+  // 打开弹出层
+  editIndex = layer.open({
+    type: 1,//层类型---1页面层
+    title: '修改文章分类',
+    content: $('#bj').html(),
+    area: ['500px', '250px'],
+    success: function () {
+      // form.val('art', { id, name, alias })
+      form.val('art', data)
+    }
+  });
+})
+
+// 确认编辑修改
+$('body').on('submit', '#edit-form', function (e) {
+  e.preventDefault();
+  var data = $(this).serialize()
+  // console.log(data);
+  $.ajax({
+    type: 'post',
+    url: '/my/category/update',
+    data: data,
+    success: function (res) {
+      layer.msg(res.message)
+      if (res.status === 0) {
+        // 重新渲染
+        renderCategory()
+        // 关闭弹层
+        layer.close(editIndex)
+      }
+    }
+  })
 })
