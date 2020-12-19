@@ -83,8 +83,13 @@
     <tr>
       <td>{{items.name}}</td>
       <td>{{items.alias}}</td>
-      <td data-id="{{items.id}}"><button type="button" class="layui-btn layui-btn-sm"><i class="layui-icon"></i></button>
-        <button type="button" class="layui-btn layui-btn-sm  layui-btn-warm"><i class="layui-icon"></i></button>
+      <td >
+        <button type="button" class="layui-btn layui-btn-sm">
+          <i data-id="{{items.id}}" class="layui-icon"></i>
+        </button>
+        <button type="button" class="layui-btn layui-btn-sm  layui-btn-warm">
+          <i class="layui-icon delete" data-id="{{items.id}}"></i>
+        </button>
       </td>
     </tr>
     {{/each}}
