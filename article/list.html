@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../assets/lib/layui/css/layui.css">
+  <link rel="stylesheet" href="../assets/css/article/list.css">
+</head>
+
+<body>
+  <div class="layui-card">
+    <div class="layui-card-header">文章列表</div>
+    <div class="layui-card-body">
+      <form class="layui-form" action="">
+        <div class="layui-form-item">
+          <select name="city" lay-verify="">
+            <option value="">所有分类</option>
+            <option value="010">北京</option>
+            <option value="021">上海</option>
+            <option value="0571">杭州</option>
+          </select>
+        </div>
+        <div class="layui-form-item">
+          <select name="city" lay-verify="">
+            <option value="">所有状态</option>
+            <option value="010">北京</option>
+            <option value="021">上海</option>
+            <option value="0571">杭州</option>
+          </select>
+        </div>
+        <div class="layui-form-item">
+          <button class="layui-btn" lay-submit lay-filter="formDemo">筛选</button>
+        </div>
+      </form>
+      <!-- 表格 -->
+      <table class="layui-table">
+        <colgroup>
+          <col width="400">
+          <col width="300">
+          <col width="200">
+          <col width="200">
+          <col>
+        </colgroup>
+        <thead>
+          <tr>
+            <th>文章标题</th>
+            <th>分类</th>
+            <th>发表时间</th>
+            <th>状态</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>贤心</td>
+            <td>贤心</td>
+            <td>贤心</td>
+            <td>2016-11-29</td>
+            <td>
+              <button type="button" class="layui-btn layui-btn-sm"><i class="layui-icon"></i></button>
+              <button type="button" class="layui-btn layui-btn-sm  layui-btn-warm"><i class="layui-icon"></i></button>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+      <!-- 分页 -->
+      <div id="page-box"></div>
+    </div>
+  </div>
+
+  <script src="../assets/lib/layui/layui.all.js"></script>
+  <script src="../assets/lib/jquery.js"></script>
+  <script src="../assets/js/article/list.js"></script>
+
+  <script>
+    layui.use('laypage', function () {
+      var laypage = layui.laypage;
+
+      laypage.render({
+        elem: 'page-box'
+        , count: 50//总条数
+        , limit: 2//每页显示的条数
+        , limits: [2, 3, 5, 10]//每页条数的选择项。如果 layout 参数开启了 limit，则会出现每页条数的select选择框
+        , layout: ['count', 'limit', 'prev', 'page', 'next', 'skip']//自定义排版。可选值有：count（总条目输区域）、prev（上一页区域）、page（分页区域）、next（下一页区域）、limit（条目选项区域）、refresh（页面刷新区域。注意：layui 2.3.0 新增） 、skip（快捷跳页区域）
+
+      });
+    });
+  </script>
+</body>
+
+</html>

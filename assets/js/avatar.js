@@ -40,7 +40,7 @@ $image.cropper(options);
 // -------------  点击  上传  ，可以选择图片  ------------
 $('button:contains("上传")').click(function () {
   // console.log($('#file'));
-  $('#file').click();
+  $('#file').trigger('click');
 });
 
 // 文件域的内容改变的时候，更换剪裁区的图片

@@ -1,0 +1,12 @@
+.layui-card {
+  margin: 15px;
+}
+body {
+  background-color: #f1f2f5;
+}
+.layui-form {
+  display: flex;
+}
+.layui-form-item {
+  margin-left: 10px;
+}

@@ -78,7 +78,7 @@ $('body').on('click', '.delete', function () {
 })
 
 // 编辑
-var form = layui.form;
+
 var editIndex;
 $('body').on('click', '.edit', function () {
   // let id = $(this).attr('data-id');
@@ -92,6 +92,7 @@ $('body').on('click', '.edit', function () {
     content: $('#bj').html(),
     area: ['500px', '250px'],
     success: function () {
+      var form = layui.form;
       // form.val('art', { id, name, alias })
       form.val('art', data)
     }
