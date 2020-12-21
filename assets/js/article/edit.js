@@ -21,6 +21,7 @@ $('#add-form').on('submit', function (e) {
     width: 400,
     height: 280
   });
+  fd.append('id', id)
   // 4.2) 把canvas图片转成base64格式，得到超长字符串
   var fileObj = canvas.toBlob(function (blob) {
     fd.append('cover_img', blob)
@@ -30,7 +31,7 @@ $('#add-form').on('submit', function (e) {
 
     $.ajax({
       type: 'post',
-      url: '/my/article/add',
+      url: '/my/article/update',
       data: fd,
       processData: false,
       contentType: false,
