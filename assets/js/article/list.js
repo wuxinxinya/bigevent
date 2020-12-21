@@ -10,7 +10,7 @@ function getList() {
     url: '/my/article/list',
     data: data,
     success: function (res) {
-      // console.log(res);
+      console.log(res);
       var str = template('tel-list', res)
       $('tbody').html(str)
       // 调用分页
@@ -81,3 +81,6 @@ $('#findAll').on('click', function (e) {
   // 重新渲染
   getList()
 })
+
+
+// 删除
