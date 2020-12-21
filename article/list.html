@@ -79,8 +79,8 @@
         <td>{{items.pub_date|dateFormat}}</td>
         <td>{{items.state}}</td>
         <td>
-          <button type="button" class="layui-btn layui-btn-sm"><i class="layui-icon"></i></button>
-          <button type="button" class="layui-btn layui-btn-sm  layui-btn-warm"><i class="layui-icon"></i></button>
+          <button data-id="{{items.id}}" id="edit-id" type="button" class="layui-btn layui-btn-sm"><i  class="layui-icon"></i></button>
+          <button data-id="{{items.id}}" id="remove-id" type="button" class="layui-btn layui-btn-sm  layui-btn-warm"><i  class="layui-icon"></i></button>
         </td>
       </tr>
       {{/each}}

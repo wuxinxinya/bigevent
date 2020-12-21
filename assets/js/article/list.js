@@ -33,7 +33,7 @@ function getList() {
     url: '/my/article/list',
     data: data,
     success: function (res) {
-      console.log(res);
+      // console.log(res);
       var str = template('tel-list', res)
       $('tbody').html(str)
       // 调用分页
@@ -107,3 +107,21 @@ $('#findAll').on('click', function (e) {
 
 
 // 删除
+$('tbody').on('click', '#remove-id', function (e) {
+  // 获取id
+  var id = $(this).attr('data-id')
+  layer.confirm('确定删除吗？', function () {
+    $.ajax({
+      type: 'get',
+      url: '/my/article/delete/' + id,
+      success: function (res) {
+        layer.msg(res.message)
+        if (res.status === 0) {
+          // 重新渲染页面
+          getList()
+        }
+      }
+    })
+  });
+
+})
