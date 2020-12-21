@@ -1,3 +1,55 @@
+// -------------获取分类，渲染到下拉分类下----------
+var form = layui.form;
+$.ajax({
+  url: '/my/category/list',
+  success: function (res) {
+    var str = template('tel-category', res)
+    $('select').html(str)
+    // form表单的更新渲染
+    // 单元素可能是动态插入的, form 模块 的自动化渲染是会对其失效的
+    form.render('select');
+  }
+})
+
+// 确认发布
+$('#add-form').on('submit', function (e) {
+  e.preventDefault()
+  var fd = new FormData(this)
+  fd.set('content', tinyMCE.activeEditor.getContent())
+
+
+  // 4.1）调用插件方法，剪裁图片；剪裁之后得到一张canvas格式的图片
+  var canvas = $image.cropper('getCroppedCanvas', {
+    width: 400,
+    height: 280
+  });
+  // 4.2) 把canvas图片转成base64格式，得到超长字符串
+  var fileObj = canvas.toBlob(function (blob) {
+    fd.append('cover_img', blob)
+    // fd.forEach((item, i) => {
+    //   console.log(item, i);
+    // })
+
+    $.ajax({
+      type: 'post',
+      url: '/my/article/add',
+      data: fd,
+      processData: false,
+      contentType: false,
+      success: function (res) {
+        layer.msg(res.message);
+        if (res.status === 0) {
+          // 重新渲染父页面的头像
+          location.href = './list.html'
+        }
+      }
+    });
+  });
+
+
+
+})
+// ----------------------------------------
 initEditor()
 // 1. 初始化图片裁剪器
 var $image = $('#image')
@@ -32,38 +84,3 @@ $('#file').change(function () {
 });
 
 
-//点击发布
-$('.pub').on('click', function () {
-  var aa = $('.pub-true').attr('value')
-  console.log(aa);
-})
-// 点击存为草稿
-$('.draft').on('click', function () {
-  var bb = $('.draft-true').attr('value')
-  console.log(bb);
-})
-$('#add-form').on('submit', function (e) {
-  e.preventDefault()
-  console.log(222);
-})
-// $('#add-form').on('submit', function (e) {
-//   e.preventDefault()
-//   var fd = new FormData(this)
-//   fd.forEach((item) => {
-//     console.log(item);
-//   })
-//   $.ajax({
-//     type: 'post',
-//     url: '/my/article/add',
-//     data: fd,
-//     success: function (res) {
-//       layer.mag(res.message)
-//       if (res.status === 0) {
-//         // 添加成功----跳转到文章列表
-//       }
-//     },
-//     processData: false,
-//     contentType: false
-//   })
-
-// })

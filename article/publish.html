@@ -26,12 +26,7 @@
           <label class="layui-form-label">文章类别</label>
           <div class="layui-input-block">
             <select name="cate_id" lay-verify="required">
-              <option value=""></option>
-              <option value="0">北京</option>
-              <option value="1">上海</option>
-              <option value="2">广州</option>
-              <option value="3">深圳</option>
-              <option value="4">杭州</option>
+              <!-- template模板 -->
             </select>
           </div>
         </div>
@@ -58,7 +53,7 @@
               <div class="img-preview"></div>
               <!-- 选择封面按钮 -->
               <!-- 文件上传----设置为隐藏域 -->
-              <input type="file" id="file" name="cover_img" style="display: none;"><br />
+              <input type="file" id="file" style="display: none;"><br />
               <button type="button" class="layui-btn layui-btn-danger">选择封面</button>
             </div>
           </div>
@@ -69,8 +64,8 @@
         <div class="layui-form-item">
           <label class="layui-form-label">选择状态</label>
           <div class="layui-input-block">
-            <input type="radio" name="status" value="已发布" title="已发布">
-            <input type="radio" name="status" value="草稿" title="草稿" checked>
+            <input type="radio" name="state" value="已发布" title="已发布">
+            <input type="radio" name="state" value="草稿" title="草稿" checked>
           </div>
         </div>
         <!-- 确认 -->
@@ -80,10 +75,16 @@
           </div>
         </div>
       </form>
-
-
     </div>
   </div>
+
+  <!-- 分类下拉模板 -->
+  <script type="text/html" id="tel-category">
+    <option value="">请选择分类</option>
+    {{each data item}}
+    <option value="{{item.id}}" >{{item.name}}</option>
+   {{/each}}
+  </script>
   <!-- layui -->
   <script src="../assets/lib/jquery.js"></script>
   <script src="../assets/lib/layui/layui.all.js"></script>
@@ -93,6 +94,9 @@
   <!-- 富文本 -->
   <script src="../assets/lib/tinymce/tinymce.min.js"></script>
   <script src="../assets/lib/tinymce/tinymce_setup.js"></script>
+  <!-- template-web -->
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/lib/template-web.js"></script>
   <!-- 自己 -->
   <script src="../assets/js/article/publish.js"></script>
 
