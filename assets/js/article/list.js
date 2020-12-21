@@ -2,13 +2,15 @@
 var data = {
   pagenum: 1,//当前页
   pagesize: 2,//一页显示几条
+  // cate_id: 1,//类别id
+  // state: '已发布',//状态
 }
 function getList() {
   $.ajax({
     url: '/my/article/list',
     data: data,
     success: function (res) {
-      console.log(res);
+      // console.log(res);
       var str = template('tel-list', res)
       $('tbody').html(str)
       // 调用分页
@@ -18,6 +20,7 @@ function getList() {
 }
 getList()
 
+// 分页
 function showPage(t) {
   var laypage = layui.laypage;
 
@@ -46,3 +49,35 @@ function showPage(t) {
     }
   });
 }
+// ----------------分类下拉列表，并渲染到下拉菜单处---------------
+var form = layui.form;
+$.ajax({
+  url: '/my/category/list',
+  success: function (res) {
+    // console.log(res);
+    var str = template('tel-xiala', res)
+    $('#sel-01').html(str)
+    // 动态添加，所以---调用form表单，更新渲染方法
+    form.render('select');
+  }
+})
+// --------根据分类和状态下拉菜单状态筛选文章列表-------------------------
+// 使用form表单的submit事件也可以，注意-----this指向不同----
+// $('form').on('submit', function (e) {
+//   e.preventDefault();
+//   console.log(this);//form
+// })
+$('#findAll').on('click', function (e) {
+  e.preventDefault();
+  //console.log(this);//button
+  // 获取两个下拉菜单所选内容
+  var data1 = $('#sel-01').val()//分类
+  var data2 = $('#sel-02').val()//状态
+  // console.log(data1, data2);
+  data1 ? data.cate_id = data1 : delete data.cate_id
+  data2 ? data.state = data2 : delete data.state
+  // 重置页码为1
+  data.pagenum = 1;
+  // 重新渲染
+  getList()
+})

@@ -16,8 +16,6 @@ $('#add-form').on('submit', function (e) {
   e.preventDefault()
   var fd = new FormData(this)
   fd.set('content', tinyMCE.activeEditor.getContent())
-
-
   // 4.1）调用插件方法，剪裁图片；剪裁之后得到一张canvas格式的图片
   var canvas = $image.cropper('getCroppedCanvas', {
     width: 400,
@@ -37,10 +35,12 @@ $('#add-form').on('submit', function (e) {
       processData: false,
       contentType: false,
       success: function (res) {
+        // console.log(res);
         layer.msg(res.message);
         if (res.status === 0) {
           // 重新渲染父页面的头像
           location.href = './list.html'
+
         }
       }
     });

@@ -15,23 +15,19 @@
     <div class="layui-card-body">
       <form class="layui-form" action="">
         <div class="layui-form-item">
-          <select name="city" lay-verify="">
-            <option value="">所有分类</option>
-            <option value="010">北京</option>
-            <option value="021">上海</option>
-            <option value="0571">杭州</option>
+          <select id="sel-01" name="city" lay-verify="">
+            <!-- 模板 -->
           </select>
         </div>
         <div class="layui-form-item">
-          <select name="city" lay-verify="">
+          <select id="sel-02" name="city" lay-verify="">
             <option value="">所有状态</option>
-            <option value="010">北京</option>
-            <option value="021">上海</option>
-            <option value="0571">杭州</option>
+            <option value="已发布">已发布</option>
+            <option value="草稿">草稿</option>
           </select>
         </div>
         <div class="layui-form-item">
-          <button class="layui-btn" lay-submit lay-filter="formDemo">筛选</button>
+          <button id="findAll" class="layui-btn" lay-submit lay-filter="formDemo">筛选</button>
         </div>
       </form>
       <!-- 表格 -->
@@ -67,7 +63,13 @@
   <script src="../assets/lib/template-web.js"></script>
   <script src="../assets/js/common.js"></script>
   <script src="../assets/js/article/list.js"></script>
-
+  <!-- 分类模板 -->
+  <script type="text/html" id="tel-xiala">
+    <option value="">请选择分类</option>
+    {{each data item}}
+     <option value="{{item.id}}">{{item.name}}</option>
+      {{/each}}
+  </script>
   <!-- 分类模板 -->
   <script type="text/html" id="tel-list">
       {{each data items}}
