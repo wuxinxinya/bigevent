@@ -89,6 +89,17 @@
       });
     });
   </script>
+  <!-- 分类模板 -->
+  <script type="text/html" id="fenlei">
+      {{each data items}}
+    <select name="city" lay-verify="">
+            <option value="">所有分类</option>
+            <option value="010">北京</option>
+            <option value="021">上海</option>
+            <option value="0571">杭州</option>
+    </select>
+      {{/each}}
+  </script>
 </body>
 
 </html>

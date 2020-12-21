@@ -11,7 +11,7 @@ var options = {
 // 3. 初始化裁剪区域
 $image.cropper(options)
 // -------------  点击  上传  ，可以选择图片  ------------
-$('button:contains("选择图片")').click(function () {
+$('button:contains("选择封面")').click(function () {
   // console.log($('#file'));
   $('#file').trigger('click');
 });
@@ -30,3 +30,40 @@ $('#file').change(function () {
   }
 
 });
+
+
+//点击发布
+$('.pub').on('click', function () {
+  var aa = $('.pub-true').attr('value')
+  console.log(aa);
+})
+// 点击存为草稿
+$('.draft').on('click', function () {
+  var bb = $('.draft-true').attr('value')
+  console.log(bb);
+})
+$('#add-form').on('submit', function (e) {
+  e.preventDefault()
+  console.log(222);
+})
+// $('#add-form').on('submit', function (e) {
+//   e.preventDefault()
+//   var fd = new FormData(this)
+//   fd.forEach((item) => {
+//     console.log(item);
+//   })
+//   $.ajax({
+//     type: 'post',
+//     url: '/my/article/add',
+//     data: fd,
+//     success: function (res) {
+//       layer.mag(res.message)
+//       if (res.status === 0) {
+//         // 添加成功----跳转到文章列表
+//       }
+//     },
+//     processData: false,
+//     contentType: false
+//   })
+
+// })

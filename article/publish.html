@@ -14,7 +14,7 @@
   <div class="layui-card">
     <div class="layui-card-header">文章列表</div>
     <div class="layui-card-body">
-      <form class="layui-form" action="">
+      <form class="layui-form" id="add-form" action="">
         <div class="layui-form-item">
           <label class="layui-form-label">文章标题</label>
           <div class="layui-input-block">
@@ -25,7 +25,7 @@
         <div class="layui-form-item">
           <label class="layui-form-label">文章类别</label>
           <div class="layui-input-block">
-            <select name="city" lay-verify="required">
+            <select name="cate_id" lay-verify="required">
               <option value=""></option>
               <option value="0">北京</option>
               <option value="1">上海</option>
@@ -39,7 +39,7 @@
           <label class="layui-form-label">文章内容</label>
           <!--------------- 富文本--------------- -->
           <div class="layui-input-block" style="height: 400px;">
-            <textarea name="desc" placeholder="请输入内容" class="layui-textarea"></textarea>
+            <textarea name="content" placeholder="请输入内容" class="layui-textarea"></textarea>
           </div>
 
         </div>
@@ -57,16 +57,27 @@
               <!-- 预览的区域 -->
               <div class="img-preview"></div>
               <!-- 选择封面按钮 -->
+              <!-- 文件上传----设置为隐藏域 -->
+              <input type="file" id="file" name="cover_img" style="display: none;"><br />
               <button type="button" class="layui-btn layui-btn-danger">选择封面</button>
             </div>
           </div>
 
           <!--  -->
         </div>
-        <div class="layui-form-item last-btn">
-          <label class="layui-form-label"></label>
-          <button class="layui-btn" lay-submit lay-filter="formDemo">发布</button>
-          <button type="reset" class="layui-btn layui-btn-primary">存为草稿</button>
+        <!-- 单选 -->
+        <div class="layui-form-item">
+          <label class="layui-form-label">选择状态</label>
+          <div class="layui-input-block">
+            <input type="radio" name="status" value="已发布" title="已发布">
+            <input type="radio" name="status" value="草稿" title="草稿" checked>
+          </div>
+        </div>
+        <!-- 确认 -->
+        <div class="layui-form-item">
+          <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="formDemo">确认</button>
+          </div>
         </div>
       </form>
 
