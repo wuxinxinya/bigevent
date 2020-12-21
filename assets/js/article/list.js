@@ -125,3 +125,9 @@ $('tbody').on('click', '#remove-id', function (e) {
   });
 
 })
+
+// 编辑功能
+$('tbody').on('click', '#edit-id', function () {
+  var id = $(this).attr('data-id')
+  location.href = './edit.html?id=' + id
+})
